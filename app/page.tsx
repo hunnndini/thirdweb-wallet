@@ -18,11 +18,13 @@ export default function Home() {
 
   return (
     <main style={{ padding: "50px", display: "flex", justifyContent: "center" }}>
+    <div style={{ opacity: hideButton ? 0 : 1 }}>
       <ConnectWallet
         modalSize="compact"
         theme="dark"
         showThirdwebBranding={false}
       />
+      </div>
     </main>
   );
 }
