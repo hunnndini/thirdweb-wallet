@@ -40,3 +40,7 @@ a {
     color-scheme: dark;
   }
 }
+/* HIDE the Thirdweb ConnectWallet button */
+button[data-testid="ConnectWalletButton"] {
+  display: none !important;
+}

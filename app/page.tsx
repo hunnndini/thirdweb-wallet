@@ -5,26 +5,24 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    // Automatically trigger modal on load
-    const button = document.querySelector("button[class*='tw-connect-button']");
-    if (button) (button as HTMLButtonElement).click();
+    // Auto-click the ConnectWallet button on load
+    const timer = setTimeout(() => {
+      const btn = document.querySelector<HTMLButtonElement>(
+        'button[class*="tw-connect-wallet"]'
+      );
+      if (btn) btn.click();
+    }, 500); // delay to ensure DOM is ready
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <main
-      style={{
-        padding: "50px",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}>
-        <ConnectWallet
-          modalSize="compact"
-          theme="dark"
-          showThirdwebBranding={false}
-        />
-      </div>
+    <main style={{ padding: "50px", display: "flex", justifyContent: "center" }}>
+      <ConnectWallet
+        modalSize="compact"
+        theme="dark"
+        showThirdwebBranding={false}
+      />
     </main>
   );
 }
