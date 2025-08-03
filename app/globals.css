@@ -41,6 +41,6 @@ a {
   }
 }
 /* HIDE the Thirdweb ConnectWallet button */
-button[data-testid="ConnectWalletButton"] {
+button[data-testid="connect-wallet-button"] {
   display: none !important;
 }
